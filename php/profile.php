@@ -22,8 +22,8 @@ if($_SESSION['auth'] and !empty($_GET)){
   $_SESSION['name'] = $user['name'];
 }
 ?>
-<a href="changePassword.php">сменить пароль</a><br>
-<a href="logout.php">выйти</a><br>
-<a style="color='red'" href="delete.php">удалить аккаунт</a>
+<a href="changePassword">сменить пароль</a><br>
+<a href="logout">выйти</a><br>
+<a style="color='red'" href="delete">удалить аккаунт</a>
 </div>
     

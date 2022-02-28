@@ -20,7 +20,7 @@ if($_SESSION['auth']){
   $query = "select * from users where id=$id";
   $result = mysqli_query($link,$query);
   $user = mysqli_fetch_assoc($result);
-  echo 'Вы зашли под пользователем: ' . $user['name'] . '<br>';
+  echo 'Вы зашли под пользователем: ' . $user['name'];?></br><?
   $hash = $user['password'];
   $oldpassword = $_POST['old_password'];
   $newpassword = $_POST['new_password'];
@@ -45,8 +45,8 @@ if($verify and ($newpassword == $confirm)){
 	<input type="submit" name="submit">
 </form>
 
+<a href='logout'>Выйти</a>
 <?
-echo "<a href='logout.php'>Выйти</a>";
 }elseif(empty($_SESSION['auth'])){
 }
 ?>

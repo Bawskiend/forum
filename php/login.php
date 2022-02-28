@@ -1,29 +1,18 @@
 <?php
-    if(!empty($_POST['login'] and !empty($_POST['password']))){
-    $login = $_POST['login'];
-    $firstconfirm = $_POST['password'];
-    $secondconfirm = $_POST['confirm'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    if($firstconfirm == $secondconfirm ){
-    $link = mysqli_connect('localhost','root','','phptest');
-    $query = "SELECT * FROM users WHERE login='$login'";
-    $user = mysqli_fetch_assoc(mysqli_query($link, $query));
-    if(empty($user)){
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
-        $age = $_POST['age'];
-        $query = "INSERT INTO users SET login='$login', password='$password', name='$name',surname = '$surname',age='$age'";
-    $result = mysqli_query($link,$query) or die($link);
-    if($result){
-        session_start();
-        $id = mysqli_insert_id($link);
-        $_SESSION['auth'] = true;
-        $_SESSION['id'] = $id;
-        header('Location: profile.php');
-    }
-}
-}else{
-    echo 'несовпадение паролей';
+session_start();
+if(empty($_SESSION['auth'])){
+    if(!empty($_POST['login']) and !empty($_POST['password'])){
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $connect = mysqli_connect('localhost','Frazer','hubprs13','phptest');
+        $query = "select * from users where login = '$login' and password = '$password'";
+        $result = mysqli_query($connect,$query) or die(mysqli_error($query));
+        $user = mysqli_fetch_assoc($result);
+        if(!empty($user)){
+            $_SESSION['auth'] = true;
+            header('Location: mainpage');
+        }
 }
 }
 ?>
@@ -44,15 +33,6 @@
         <input type="text" name='login' class='login'>
         <p>Пароль:</p>
         <input type="password" name='password'>
-        <p>Подтверждение пароля:</p>
-        <input type="password" name='confirm'>
-        <p>Имя:</p>
-        <input type="text" name='name'>
-        <p>Фамилия:</p>
-        <input type="text" name='surname'>
-        <p>Возраст:</p>
-        <input type="text" name='age'>
-        </div>
     <input type="submit" value="reg" name="submit" class='reg'>
     </form>
 </body>

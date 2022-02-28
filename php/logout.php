@@ -1,7 +1,7 @@
 <?php
     session_start();
     unset($_SESSION['auth']);
-    header('Location: profile.php');
+    header('Location: profile');
 ?> 
 <meta charset="UTF-8">
 <!DOCTYPE html>
