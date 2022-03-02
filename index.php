@@ -4,11 +4,11 @@
     $path = 'php' . $url . '.php';
     $htmlpath = 'html' . $url . '.html';
     if(file_exists($path)){
-        include $path;
         $layout = file_get_contents('php/layout.php');
         $content = file_get_contents($htmlpath);
         $layout = str_replace('{{ content }}', $content, 
 		$layout);
+        include $path;
         echo $layout;
     }
     elseif(!file_exists($path) or !file_exists($htmlpath)){
