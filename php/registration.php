@@ -13,7 +13,7 @@
         $surname = $_POST['surname'];
         $age = $_POST['age'];
         $query = "INSERT INTO users SET login='$login', password='$password', name='$name',surname = '$surname',age='$age'";
-    $result = mysqli_query($link,$query) or die($link);
+        $result = mysqli_query($link,$query) or die(mysqli_error($link));
     if($result){
         session_start();
         $id = mysqli_insert_id($link);
