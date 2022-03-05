@@ -4,7 +4,7 @@
     $path = 'php' . $url . '.php';
     $htmlpath = 'html' . $url . '.html';
     if(file_exists($path)){
-        $layout = file_get_contents('php/layout.php');
+        include_once('html/layout.html');
         $content = file_get_contents($htmlpath);
         $layout = str_replace('{{ content }}', $content, 
 		$layout);
@@ -12,7 +12,8 @@
         echo $layout;
     }
     elseif(!file_exists($path) or !file_exists($htmlpath)){
-        $layout = file_get_contents('php/layout.php');
+        include_once('php/layout.php');
+        $layout = file_get_contents('html/layout.html');
         $content = file_get_contents('html/404.html');
         $layout = str_replace('{{ content }}', $content, 
 		$layout);

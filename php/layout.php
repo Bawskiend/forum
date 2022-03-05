@@ -1,3 +1,9 @@
+<?php
+session_start();
+$headerlink = "<a href='/logout'>Выйти</a>"
+
+?>
+
 <meta charset="UTF-8">
 <!DOCTYPE html>
 <html>
@@ -6,7 +12,9 @@
 		<title>title</title>
 	</head>
 	<body>
-		<header class="header"></header>
+		<header class="header">
+			{{ header }}
+		</header>
 		<main class="main">
 		<div class="app-container">
 		{{ content }}

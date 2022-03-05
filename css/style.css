@@ -11,6 +11,19 @@
     height: 30px;
     background-color: rgb(0, 196, 196);
 }
-.footer{
-
+.list-container{
+    border: 2px black solid;
+    width: 200px;
+    height: 300px;
+    margin: 20px auto 0 auto;
+}
+.list{
+    
+}
+.list-item{
+    background-color: #78DBE2;
+    border-bottom: 2px black solid;
+}
+.list-link{
+margin: 0 auto;
 }
