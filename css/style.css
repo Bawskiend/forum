@@ -14,16 +14,22 @@
 .list-container{
     border: 2px black solid;
     width: 200px;
-    height: 300px;
     margin: 20px auto 0 auto;
-}
-.list{
-    
 }
 .list-item{
     background-color: #78DBE2;
+    
+}
+.list li{
     border-bottom: 2px black solid;
 }
+.list li:last-child{
+    border: none;
+}
 .list-link{
+    padding-left: 20px;
+    display: block;
 margin: 0 auto;
+text-decoration: none;
+color: black;
 }

@@ -15,8 +15,8 @@
     elseif(!file_exists($path) or !file_exists($htmlpath)){
         $layout = file_get_contents('html/layout.html');
         $content = file_get_contents('html/404.html');
-        $layout = str_replace('{{ content }}', $content, 
-		$layout);
+        include_once('php/404.php');
+        $layout = str_replace('{{ content }}', $content, $layout);
         echo $layout;
     }
     else{

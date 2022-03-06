@@ -15,6 +15,7 @@ if(empty($_SESSION['auth'])){
 
             }
         }else{
+            echo 'неверный логин или пароль';
         }
 }
 }else{

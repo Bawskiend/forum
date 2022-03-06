@@ -11,7 +11,7 @@ elseif($url== '/registration'){
     $layout = str_replace('{{ header }}','',$layout);
 
 }else{
-    $layout = str_replace('{{ header }}','',$layout);
+    $layout = str_replace('{{ header }}',' ',$layout);
 
 }
 ?>
