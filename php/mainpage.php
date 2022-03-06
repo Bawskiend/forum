@@ -17,6 +17,6 @@
         $result .='</div>';
         file_put_contents('./html/mainpage.html',$result);
     }else{
-
+        header('Location: /login');
     }
 ?>

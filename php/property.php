@@ -11,7 +11,6 @@
         }
         file_put_contents('./html/property.html',$result);
     }else{
-        $query = 'FUCK YOU';
-        file_put_contents('./html/property.html',$query);
+       header('Location: /login');
     }
 ?>
