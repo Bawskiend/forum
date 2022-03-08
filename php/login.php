@@ -22,3 +22,14 @@ if(empty($_SESSION['auth'])){
     header('Location: mainpage');
 }
 ?>
+<div class="form-container">
+    <form method="POST" class="login-form">
+        <p>Логин:</p>
+        <input type="text" name='login' class='login'>
+        <p>Пароль:</p>
+        <input type="password" name='password'>
+        <input type="submit" value="Войти" name="submit" class='reg'>
+    </form>
+    <p><a href="/registration">Регистрация</a></p>
+</div>
+

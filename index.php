@@ -1,26 +1,39 @@
 <?php
     session_start();
     $url = $_SERVER['REQUEST_URI'];
-    $path = 'php' . $url . '.php';
-    $htmlpath = 'html' . $url . '.html';
-    if(file_exists($path)){
-        $layout = file_get_contents('html/layout.html');
-        $content = file_get_contents($htmlpath);
-        include_once('php/layout.php');
-        $layout = str_replace('{{ content }}', $content, 
-		$layout);
-        include $path;
-        echo $layout;
+    $content = 'php' . $url . '.php';
+    if(file_exists($content)){
+        $header = 'php/header.php';
+        ob_start();
     }
-    elseif(!file_exists($path) or !file_exists($htmlpath)){
-        $layout = file_get_contents('html/layout.html');
-        $content = file_get_contents('html/404.html');
-        include_once('php/404.php');
-        $layout = str_replace('{{ content }}', $content, $layout);
-        echo $layout;
+    elseif(!file_exists($content)){
+        $header = 'php/header.php';
+        $content = 'php/404.php';
     }
     else{
         echo 'fuck of';
     }
 
-        ?> 
+        ?>
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <head>
+		<title>title</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<header class="header">
+            <? include_once $header ?>
+            </header>
+            <main class="main">
+                <div class="app-container">
+			<? include_once $content?>
+		</div>
+		</main>
+		<footer class="footer">
+        <? //include_once $footer?> 
+			
+		</footer>
+	</body>
+</html>         
