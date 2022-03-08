@@ -39,6 +39,9 @@ color: black;
     padding-top: 15px;
     padding-bottom: 15px;
 }
+.heading-container{
+    border-bottom: 1px gray solid;
+}
 .logout-button{
     height: 30px;
     background-color: rgba(0, 4, 233, 0.418);

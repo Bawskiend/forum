@@ -27,3 +27,22 @@
 }
 }
 ?>
+<p class="text">Форма регистрации</p>
+    <form method="POST" class="form">
+        <div class="container">
+        <p>Логин:</p>
+        <input type="text" name='login' class='login'>
+        <p>Пароль:</p>
+        <input type="password" name='password'>
+        <p>Подтверждение пароля:</p>
+        <input type="password" name='confirm'>
+        <p>Имя:</p>
+        <input type="text" name='name'>
+        <p>Фамилия:</p>
+        <input type="text" name='surname'>
+        <p>Возраст:</p>
+        <input type="text" name='age'>
+        </div>
+    <input type="submit" value="reg" name="submit" class='reg'>
+    </form>
+    <p><a href="login">Уже зарегестрированы? Войти</a></p>
