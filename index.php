@@ -10,9 +10,6 @@
         $header = 'php/header.php';
         $content = 'php/404.php';
     }
-    else{
-        echo 'fuck of';
-    }
 
         ?>
 <!DOCTYPE html>
