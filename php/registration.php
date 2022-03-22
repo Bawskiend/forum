@@ -5,7 +5,7 @@
     $secondconfirm = $_POST['confirm'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     if($firstconfirm == $secondconfirm ){
-    $link = mysqli_connect('localhost','root','','phptest');
+    $link = mysqli_connect('localhost','root','','forum');
     $query = "SELECT * FROM users WHERE login='$login'";
     $user = mysqli_fetch_assoc(mysqli_query($link, $query));
     if(empty($user)){

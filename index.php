@@ -1,6 +1,9 @@
 <?php
     session_start();
     $url = $_SERVER['REQUEST_URI'];
+    if($url == '' or $url == '/'){
+        header('Location: mainpage');
+    }
     $content = 'php' . $url . '.php';
     if(file_exists($content)){
         $header = 'php/header.php';
