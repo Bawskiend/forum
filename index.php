@@ -26,8 +26,7 @@
 		<header class="header">
             <? include_once $header ?>
             </header>
-            <main class="main">
-                <div class="app-container">
+            <main class="app-container">
 			<? include_once $content?>
 		</div>
 		</main>

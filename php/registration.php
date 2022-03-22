@@ -12,7 +12,7 @@
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $age = $_POST['age'];
-        $query = "INSERT INTO users SET login='$login', password='$password', name='$name',surname = '$surname',age='$age'";
+        $query = "INSERT INTO users SET login='$login', password='$password'";
         $result = mysqli_query($link,$query) or die(mysqli_error($link));
     if($result){
         session_start();
@@ -36,12 +36,6 @@
         <input type="password" name='password'>
         <p>Подтверждение пароля:</p>
         <input type="password" name='confirm'>
-        <p>Имя:</p>
-        <input type="text" name='name'>
-        <p>Фамилия:</p>
-        <input type="text" name='surname'>
-        <p>Возраст:</p>
-        <input type="text" name='age'>
         </div>
     <input type="submit" value="reg" name="submit" class='reg'>
     </form>

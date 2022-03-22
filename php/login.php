@@ -5,12 +5,13 @@ if(empty($_SESSION['auth'])){
         $password = $_POST['password'];
         $connect = mysqli_connect('localhost','root','','forum');
         $query = "select * from users where login = '$login'";
-        $result = mysqli_query($connect,$query) or die(mysqli_error($query));
+        $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
         $user = mysqli_fetch_assoc($result);
         if(!empty($user)){
             $hash = $user['password'];
             if(password_verify($_POST['password'],$hash)){
                 $_SESSION['auth'] = true;
+                $_SESSION['id'] = $user['id'];
                 header('Location: mainpage');
 
             }
