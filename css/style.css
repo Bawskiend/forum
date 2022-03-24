@@ -61,9 +61,20 @@ color: black;
     margin: 5px;
     padding: 5px;
 }
+.post{
+    margin: 0 20px 20px 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.post:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.post a{
+    color: black;
+    text-decoration: none;
+}
 .form-container{
     margin: 150px auto 0;
-    width: 300px;
+    width: 400px;
     padding: 20px;
     border: 2px black solid;
 }
