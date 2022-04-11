@@ -12,7 +12,7 @@ if(empty($_SESSION['auth'])){
             if(password_verify($_POST['password'],$hash)){
                 $_SESSION['auth'] = true;
                 $_SESSION['author_id'] = $user['id'];
-                $_SESSION['author_login'] = $user['login']
+                $_SESSION['author_login'] = $user['login'];
                 $_SESSION['id'] = $user['id'];
                 header('Location: mainpage');
 
