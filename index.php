@@ -1,6 +1,10 @@
 <?php
     session_start();
     $url = $_SERVER['REQUEST_URI'];
+    function rgp($url) { 
+        return preg_replace('/^([^?]+)(\?.*?)?(#.*)?$/', '$1$3', $url);
+    }
+    $url = rgp($url);
     if($url == '' or $url == '/'){
         header('Location: mainpage');
     }
