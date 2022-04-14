@@ -9,9 +9,8 @@ while($topics = mysqli_fetch_assoc($query)){
     $topic_header = $topics['header'];
     $author_login = $topics['author_login'];
     $date = $topics['date'];
-    $datearray = explode(' ',$date);
-    var_dump($datearray);
-    echo "<div class='post'><a class='post-link' href=''><h2>$topic_header</h2><p>Автор: $author_login</p><p>"?><?echo date('d.m.Y H:i', strtotime($date))?><?"</p></a></div>";
+    $topic_id = $topics['topic_id'];
+    echo "<div class='post'><a class='post-link' href='viewtopic?id=$topic_id'><h2>$topic_header</h2><p>Автор: $author_login</p><p>"?><?echo date('d.m.Y H:i', strtotime($date))?><?"</p></a></div>";
 }
 echo "</div>";
 }
