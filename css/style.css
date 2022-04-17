@@ -81,10 +81,25 @@ color: black;
 }
 .topic-content{
     max-width: 600px;
-    margin: 0 auto;
-    border-right: 1px solid rgba(128, 128, 128, 0.158);
+    margin: 0 auto 30px;
     border-left: 1px solid rgba(128, 128, 128, 0.158);
 }
 .topic-header{
     margin-top: 15px;
+}
+.comments{
+    max-width: 600px;
+    margin: 0 auto;
+    border-left: 1px solid rgba(128, 128, 128, 0.158);
+
+}
+.commenttext{
+    display: block;
+    resize:vertical;
+    width: 600px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+.newcomment{
+
 }
