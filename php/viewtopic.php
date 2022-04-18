@@ -3,13 +3,15 @@ session_start();
 if($_SESSION['auth'] == true){
     $connect = mysqli_connect('localhost','root','','forum');
     $id = $_GET['id'];
+    $_SESSION['topic_id'] = $id;
     $query = "select * from topics where topic_id='$id'";
     $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
     $result = mysqli_fetch_assoc($result);
     if($result){
         $topic_header = $result['header'];
         $topic_text = $result['text'];
-        $topic_author = $result['topic_author'];
+        $topic_author = $result['author_id'];
+        $_SESSION['author_id'] = $topic_author;
         echo "
         <div class='topic-content'>
         <div class = 'create-heading'><a class = 'create-heading-link' href='/addtopic'>Разместить статью</a></div>
@@ -22,12 +24,12 @@ if($_SESSION['auth'] == true){
      $result = mysqli_fetch_assoc($result);
      echo "<div class='comments'>";
      if(count($result) == 0){
-     echo "<h2>В теме пока нет комментариев</h2>";
+     echo "<h2 class='comments__notice'>В теме пока нет комментариев</h2>";
      }
     echo "<p>Добавьте свой комментарий</p>
-    <form method='POST' class='newcomment'>
+    <form method='POST' action='addcomment' class='newcomment'>
         <textarea name='commenttext' class='commenttext'></textarea>
-        <input type='submit' action='addcomment.php' value='Опубликовать' name='addcomment' class='addcomment'>
+        <input type='submit' value='Опубликовать' name='addcomment' class='addcomment'>
      </form>
      </div>";
      }
