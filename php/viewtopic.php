@@ -21,17 +21,34 @@ if($_SESSION['auth'] == true){
      </div>";
      $query = "select * from comments where topic_id='$id' order by date";
      $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
-     $result = mysqli_fetch_assoc($result);
      echo "<div class='comments'>";
      if(count($result) == 0){
      echo "<h2 class='comments__notice'>В теме пока нет комментариев</h2>";
+     echo "<p>Добавьте свой комментарий</p>
+     <form method='POST' action='addcomment' class='newcomment'>
+         <textarea name='commenttext' class='commenttext'></textarea>
+         <input type='submit' value='Опубликовать' name='addcomment' class='addcomment'>
+      </form>
+      </div>";
      }
-    echo "<p>Добавьте свой комментарий</p>
-    <form method='POST' action='addcomment' class='newcomment'>
-        <textarea name='commenttext' class='commenttext'></textarea>
-        <input type='submit' value='Опубликовать' name='addcomment' class='addcomment'>
-     </form>
-     </div>";
+     else if(count($result) > 0){
+        echo "<p>Добавьте свой комментарий</p>
+        <form method='POST' action='addcomment' class='newcomment'>
+            <textarea name='commenttext' class='commenttext'></textarea>
+            <input type='submit' value='Опубликовать' name='addcomment' class='addcomment'>
+         </form>";
+         while($comments = mysqli_fetch_assoc($result)){
+             $author_id = $comments['author_id'];
+             $comment = $comments['text'];
+             $commentdate = $comments['date'];
+             echo "<div class='comment'>
+             <p>$author_id</p>
+             <p>$comment</p>
+             <p>$commentdate</p>
+             </div>";
+            }
+           echo "</div>";
+     }
      }
     }
 ?>
