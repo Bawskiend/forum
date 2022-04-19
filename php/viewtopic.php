@@ -39,10 +39,13 @@ if($_SESSION['auth'] == true){
          </form>";
          while($comments = mysqli_fetch_assoc($result)){
              $author_id = $comments['author_id'];
+             $query = mysqli_query($connect,"select login from users where id='$author_id'") or die(mysqli_error($connect));
+             $queryresult = mysqli_fetch_assoc($query);
+             $author_login = $_SESSION['author_login'];
              $comment = $comments['text'];
              $commentdate = $comments['date'];
              echo "<div class='comment'>
-             <p>$author_id</p>
+             <p>$author_login</p>
              <p>$comment</p>
              <p>$commentdate</p>
              </div>";
