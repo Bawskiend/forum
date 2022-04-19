@@ -14,10 +14,10 @@ if($_SESSION['auth'] == true and empty($_POST['topic-header']) and empty($_POST[
 else if(!empty($_POST['topic-header']) and !empty($_POST['topic-text'])){
     $topicheader = $_POST['topic-header'];
     $topictext = $_POST['topic-text'];
-    $author_id = $_SESSION['author_id'];
-    $author_login = $_SESSION['author_login'];
+    $user_id = $_SESSION['user_id'];
+    $user_login = $_SESSION['author_login'];
     $connect = mysqli_connect('localhost','root','','forum');
-    $query = "INSERT INTO topics SET header='$topicheader', text='$topictext', author_id='$author_id', author_login='$author_login'";
+    $query = "INSERT INTO topics SET header='$topicheader', text='$topictext', author_id='$user_id', author_login='$user_login'";
     $mysqliquery = mysqli_query($connect,$query) or die(mysqli_error($connect));
     if($mysqliquery){
         header('Location: /mainpage');

@@ -41,7 +41,7 @@ if($_SESSION['auth'] == true){
              $author_id = $comments['author_id'];
              $query = mysqli_query($connect,"select login from users where id='$author_id'") or die(mysqli_error($connect));
              $queryresult = mysqli_fetch_assoc($query);
-             $author_login = $_SESSION['author_login'];
+             $author_login = $queryresult['login'];
              $comment = $comments['text'];
              $commentdate = $comments['date'];
              echo "<div class='comment'>

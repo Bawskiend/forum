@@ -2,7 +2,7 @@
 session_start();
 if($_SESSION['auth'] == true){
     $commenttext = $_POST['commenttext'];
-    $author_id = $_SESSION['author_id'];
+    $author_id = $_SESSION['user_id'];
     $topic_id = $_SESSION['topic_id'];
     $connect = mysqli_connect('localhost','root','','forum');
     $query = "INSERT INTO comments SET author_id = '$author_id', text = '$commenttext', topic_id = '$topic_id'";
