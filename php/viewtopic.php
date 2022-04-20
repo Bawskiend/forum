@@ -48,7 +48,7 @@ if($_SESSION['auth'] == true){
              $comment = $comments['text'];
              $commentdate = $comments['date'];
              echo "<div class='comment'>
-             <p>$author_login</p>
+             <div class='comment-author'>$author_login</div>
              <p>$comment</p>
              <p>$commentdate</p>
              </div>";
