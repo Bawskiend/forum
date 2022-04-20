@@ -14,7 +14,7 @@ if(empty($_SESSION['auth'])){
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_login'] = $user['login'];
                 $_SESSION['user_id'] = $user['id'];
-                echo $_SESSION['user_id'];
+                $_SESSION['user_rights'] = $user['rights'];
                 header('Location: mainpage');
 
             }
@@ -32,7 +32,7 @@ if(empty($_SESSION['auth'])){
         <input type="text" name='login' class='login'>
         <p>Пароль:</p>
         <input type="password" name='password'>
-        <input type="submit" value="Войти" name="submit" class='reg'>
+        <input type="submit" value="Войти" name="submit" class='login-submit'>
     </form>
     <p><a href="/registration">Регистрация</a></p>
 </div>

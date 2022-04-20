@@ -15,7 +15,7 @@ else if(!empty($_POST['topic-header']) and !empty($_POST['topic-text'])){
     $topicheader = $_POST['topic-header'];
     $topictext = $_POST['topic-text'];
     $user_id = $_SESSION['user_id'];
-    $user_login = $_SESSION['author_login'];
+    $user_login = $_SESSION['user_login'];
     $connect = mysqli_connect('localhost','root','','forum');
     $query = "INSERT INTO topics SET header='$topicheader', text='$topictext', author_id='$user_id', author_login='$user_login'";
     $mysqliquery = mysqli_query($connect,$query) or die(mysqli_error($connect));

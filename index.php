@@ -25,6 +25,9 @@
     <head>
 		<title>title</title>
 		<link rel="stylesheet" href="css/style.css">
+        <? if($url == '/login'){
+            echo "<script src='/js/script.js'></script>";
+        } ?>
 	</head>
 	<body>
 		<header class="header">

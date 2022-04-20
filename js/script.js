@@ -1,9 +1,13 @@
-let btn = document.querySelector('.submit');
-let parent = document.querySelector('.form-app');
-let form = document.querySelector('.form');
-btn.addEventListener('click',function(){
-    setTimeout(function(){
-        parent.removeChild(form);
-    console.log('deleted');
-    },200)
-})
+let app_container = document.querySelector('.app-container');
+window.onload = () => {
+let loginbtn = document.querySelector('.login-submit');
+loginbtn.addEventListener('click',() =>{
+let promise = fetch('/mainpage').then(
+    response =>{
+        return response.text;
+}).then(
+    text =>{
+        app_container.innerHTML = text;
+    }
+);
+})}

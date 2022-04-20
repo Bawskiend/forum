@@ -52,7 +52,7 @@ color: black;
     margin-left: 5px;
     margin-top: 7.5px;
 }
-.create-heading-link{
+.create-heading__link{
     border: 1px solid #00AAFF;
     background-color: #00AAFF;
     text-decoration: none;
@@ -78,6 +78,16 @@ color: black;
     width: 400px;
     padding: 20px;
     border: 2px black solid;
+}
+.delete-topic{
+    margin-left: 100%;
+
+}
+.delete-topic__link{
+    text-decoration: none;
+    color: black;
+    padding: 5px 5px;
+    border: 1px solid black;
 }
 .topic-content{
     max-width: 600px;

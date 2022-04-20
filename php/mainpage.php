@@ -1,9 +1,9 @@
 <?php
 session_start();
 if($_SESSION['auth'] == true){
-echo '<div class = "create-heading"><a class = "create-heading-link" href="/addtopic">Разместить статью</a></div>';
+echo '<div class = "create-heading"><a class = "create-heading__link" href="/addtopic">Разместить статью</a></div>';
 $connect = mysqli_connect('localhost','root','','forum');
-$query = mysqli_query($connect,'Select * from topics');
+$query = mysqli_query($connect,"Select * from topics where status = 'active'");
 echo "<div class='posts'>";
 while($topics = mysqli_fetch_assoc($query)){
     $topic_header = $topics['header'];

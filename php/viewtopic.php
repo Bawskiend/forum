@@ -14,12 +14,15 @@ if($_SESSION['auth'] == true){
         $_SESSION['author_id'] = $topic_author;
         echo "
         <div class='topic-content'>
-        <div class = 'create-heading'><a class = 'create-heading-link' href='/addtopic'>Разместить статью</a></div>
-        <h1 class='topic-content__header'>$topic_header</h1>
+        <div class = 'create-heading'><a class = 'create-heading__link' href='/addtopic'>Разместить статью</a></div>";
+        if($_SESSION['user_rights'] == 'admin' or $_SESSION['user_rights'] == 'moderator'){
+            echo "<div class = 'delete-topic'><a class = 'delete-topic__link' href='/deletetopic?topic_id=$id'>Удалить</a></div>";
+        }
+        echo "<h1 class='topic-content__header'>$topic_header</h1>
         <p class='topic-content__text'>$topic_text</p>
         <p class=topic-content__author>$topic_author</p>
      </div>";
-     $query = "select * from comments where topic_id='$id' order by date";
+     $query = "select * from comments where topic_id='$id' and status='active' order by date";
      $result = mysqli_query($connect,$query) or die(mysqli_error($connect));
      echo "<div class='comments'>";
      if(count($result) == 0){
