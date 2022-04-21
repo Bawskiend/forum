@@ -12,9 +12,9 @@ if($_SESSION['auth'] == true){
         $topic_text = $result['text'];
         $topic_author = $result['author_id'];
         $_SESSION['author_id'] = $topic_author;
-        echo "
-        <div class='topic-content'>
-        <div class = 'create-heading'><a class = 'create-heading__link' href='/addtopic'>Разместить статью</a></div>";
+        echo "<div class='topic'>
+        <div class = 'create-heading'><a class = 'create-heading__link' href='/addtopic'>Разместить статью</a></div>
+        <div class='topic-content'>";
         if($_SESSION['user_rights'] == 'admin' or $_SESSION['user_rights'] == 'moderator'){
             echo "<div class = 'delete-topic'><a class = 'delete-topic__link' href='/deletetopic?topic_id=$id'>Удалить</a></div>";
         }
@@ -53,7 +53,8 @@ if($_SESSION['auth'] == true){
              <p>$commentdate</p>
              </div>";
             }
-           echo "</div>";
+           echo "</div>
+           </div>";
      }
      }
     }

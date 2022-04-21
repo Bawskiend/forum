@@ -89,10 +89,13 @@ color: black;
     padding: 5px 5px;
     border: 1px solid black;
 }
-.topic-content{
+.topic{
     max-width: 600px;
     margin: 0 auto 30px;
     border-left: 1px solid rgba(128, 128, 128, 0.158);
+}
+.topic-content{
+  
 }
 .topic-header{
     margin-top: 15px;
