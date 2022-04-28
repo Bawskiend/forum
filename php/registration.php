@@ -18,7 +18,8 @@
         session_start();
         $id = mysqli_insert_id($link);
         $_SESSION['auth'] = true;
-        $_SESSION['id'] = $id;
+        $_SESSION['user_id'] = $id;
+        $_SESSION['user_login'] = $login;
         header('Location: /mainpage');
     }
 }

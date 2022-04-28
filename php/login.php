@@ -15,7 +15,7 @@ if(empty($_SESSION['auth'])){
                 $_SESSION['user_login'] = $user['login'];
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_rights'] = $user['rights'];
-                header('Location: mainpage');
+                //header('Location: mainpage');
 
             }
         }else{
@@ -23,7 +23,8 @@ if(empty($_SESSION['auth'])){
         }
 }
 }else{
-    header('Location: mainpage');
+    echo 'ajax dont work';
+    //header('Location: mainpage');
 }
 ?>
 <div class="form-container">
